@@ -7,7 +7,7 @@ En PHP, les tableaux :
 Il existe deux types de tableaux ...
 
 
-## Les Tableaux Indicés
+## Les Tableaux Indicés (index)
 
 C'est une liste d'éléments repérés par une position unique, son indice commençant par zéro.
 

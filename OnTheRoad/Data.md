@@ -15,6 +15,14 @@ Voici la particularité du PHP : **Pas de déclaration**
 ?>
 ```
 
+/!\ Avec les avancées et les nouveautés de PHP, PHP 7 introduit ce qui existe dans beaucoup de langage, le type explicite.
+Il faut ajouter tout en haut de son script : 
+
+```php
+<?php declare(strict_types=1); ?>
+```
+
+
 ### Règle de nommage des variables
 
 /!\ Syntage :
@@ -45,7 +53,7 @@ Comme en algorithmique, la portée d'une variable (ou identifiant) est la partie
 | :--------------------------------------------------: | :----------------------------: |
 | Visibles que dans le "block" où elles ont été créées | Visible dans tout l'algorithme |
 
-Pour qu'une variable soit utilisable dans un autre block, il faut qu'elle soit passée en paramètre. Toutes les variables sont locales en PHP.
+Cependant en PHP, pour qu'une variable soit utilisable dans un autre block, il faut qu'elle soit passée en paramètre. Toutes les variables sont locales en PHP.
 
 ### Les Globales
 
@@ -94,6 +102,27 @@ Pour qu'une variable soit utilisable dans un autre block, il faut qu'elle soit p
 ?>
 ```
 
+### Les Variables dynamiques
+
+- Static
+
+```php
+<?php
+
+  function ajouteUn()
+  {
+    static $iNbr = 100;
+    $iNbr++;
+    echo $iNbr;
+  }
+
+  ajouteUn();
+  ajouteUn();
+  ajouteUn();
+
+?>
+```
+
 ### Les Constantes
 
 - Identifiant :
@@ -115,6 +144,7 @@ define("NOM_CONSTANTE", "Valeur");
   echo TVA;
 ```
 
+
 ## Traitement sur les variables
 
 - Quelques fonctions :
@@ -126,6 +156,7 @@ define("NOM_CONSTANTE", "Valeur");
 |      `unset($var)`      |                                détruit une variable `$var`                                 |
 |     `gettype($var)`     |                           retourne le type de la variable `$var`                           |
 | `settype($var, "type")` |                            convertit la variable `$var` (cast)                             |
+|    `var_dump($var)`     |         Affiche les informations structurées d'une variable (son type, sa valeur)          |
 
 ```php
 $sNom = '';
@@ -175,13 +206,17 @@ On peut les définir :
 
 Voici quelques fonctions de traitement des chaînes :
 
-|          Fonctions          |                         Utilisation                          |
-| :-------------------------: | :----------------------------------------------------------: |
-|       `strlen($var)`        |         retourne le nombre de caractère d'une chaîne         |
-|      `strtlower($var)`      |                   conversion en minuscule                    |
-|        `trim($var)`         |          suppression des espaces de début et de fin          |
-|  `strnatcmp($var1, $var2)`  |                 comparaison de deux chaînes                  |
-| `explode(separateur, $var)` | renvoie un tableau des valeurs comprises entre le séparateur |
+|             Fonctions              |                         Utilisation                          |
+| :--------------------------------: | :----------------------------------------------------------: |
+|           `strlen($var)`           |         retourne le nombre de caractère d'une chaîne         |
+|       `str_word_count($var)`       |            retourne le nombre de mot d'une chaîne            |
+|           `strrev($var)`           |                inverse la chaîne de caractère                |
+|         `strtlower($var)`          |                   conversion en minuscule                    |
+|            `trim($var)`            |          suppression des espaces de début et de fin          |
+|     `strnatcmp($var1, $var2)`      |                 comparaison de deux chaînes                  |
+|    `explode(separateur, $var)`     | renvoie un tableau des valeurs comprises entre le séparateur |
+|      `strpos($var, "monMot")`      |      retourne la position du caractère du mot recherché      |
+| `str_replace($var1, $var2, $var3)` |          remplace `$var1` par  `$var2` dans `$var3`          |
 
 
 ---

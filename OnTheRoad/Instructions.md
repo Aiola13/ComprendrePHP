@@ -32,15 +32,18 @@ Le « . » (le point)
 
 ### Les opérateurs relationnels (de comparaison)
 
-| Signe |       Opération       |
-| :---: | :-------------------: |
-| `==`  |        Egalité        |
-| `===` |       Identité        |
-| `!=`  |       Différent       |
-|  `<`  | Strictement Inférieur |
-| `<=`  |   Inférieur ou égal   |
-|  `>`  | Strictement Supérieur |
-| `>=`  |   Supérieur ou égal   |
+| Signe |          Opération           |
+| :---: | :--------------------------: |
+| `==`  |           Egalité            |
+| `===` | Identité    (valeur et type) |
+| `!=`  |          Différent           |
+| `!==` | Différent  (valeur ou type)  |
+|  `<`  |    Strictement Inférieur     |
+| `<=`  |      Inférieur ou égal       |
+|  `>`  |    Strictement Supérieur     |
+| `>=`  |      Supérieur ou égal       |
+| `>=`  |      Supérieur ou égal       |
+| `<=>` |      Combiné    (PHP 7)      |
 
 ### Cas particulier de l'affectation
 
@@ -108,6 +111,13 @@ $var = 2;
 echo ($var > 3) ? 'plus grand<br />' : 'plus petit<br />';
 ```
 
+```php
+// syntaxe
+// (Définie) ?? (Définie) ?? (Définie) ?? "Alors réponse";
+$sMaCouleur = $bleu ?? $pink ?? $purple ?? "Pas de couleur";
+
+```
+
 [comment]: #'BOUCLES'
 
 ## Structures de répétition
@@ -142,6 +152,19 @@ for($i = 0; $i <= 10; $i++)
   echo "-$i-";
 }
 ```
+
+
+### Foreach (Array)
+
+Nous le verrons plus en détail lorsque nous parlerons des tableaux :) 
+
+```php
+$aAgePersonne = array("Loïc" => 29, "Julien" => 30, "Stanislas" => 30);
+
+foreach($aAgePersonne as $nom => $age)
+{
+  echo "$nom a $age ans. <br />";
+}
 
 ## Mots-clés
 

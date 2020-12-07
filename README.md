@@ -16,17 +16,19 @@ J'ai créé tout d'abord ces documents dans le cadre des cours donnés au GRETA 
 
 ATTENTION ... j'utilise pour ce cours :
 
-| un éditeur de code | [Visual Studio Code](https://code.visualstudio.com) |
-| --- | --- |
-| un serveur web | Apache |
-| Un interpréteur de script PHP | Zend Engine |
-| un serveur de base de donnée | MySQL |
+| un éditeur de code            | [Visual Studio Code](https://code.visualstudio.com) |
+| ----------------------------- | --------------------------------------------------- |
+| un serveur web                | Apache                                              |
+| Un interpréteur de script PHP | Zend Engine                                         |
+| un serveur de base de donnée  | MySQL                                               |
 
 Nous avons de la chance ... 💡, Vous pouvez utiliser le logiciel qui regroupe :
 
 - un serveur web
 - un interpréteur de script PHP
-- un serveur de base de donnée Qui s'appelle [WAMP](https://www.wampserver.com) pour windows. Ou les déclinaisons pour MAC (MAMPP) et Linux (LAMP)
+- un serveur de base de donnée 
+
+Qui s'appelle [WAMP](https://www.wampserver.com) pour windows. Ou les déclinaisons pour MAC (MAMPP) et Linux (LAMP)
 
 ## Participer
 

@@ -1,64 +1,97 @@
-# Les procédures et fonctions
+# Les fonctions
 
-## Les paramètres
+Quelle surprise 😮 ! Le php permet aussi l'écriture de fonctions.
+Elle peuvent : 
+- prendre des arguments
+- renvoyer une valeur
+- ne pas respecter son prototypage (nbr de paramètre)
 
-### Locaux – Globaux
+```php
+<?php
 
-Vous vous rappelez des paramètres ? Euh .... non 🤔 ...
-
-Mais si les **<span style="color:#D7BA7D">paramètres</span>**, dans la section précédente. Les paramètres sont des arguments, des variables (ou constantes) placés entre parenthèse d'une routine et qui permet d'envoyer des valeurs à la **<span style="color:#D7BA7D">routine</span>**.
-
-On distingue deux catégories de paramètres :
-
-- Les **locaux**
-  - Les paramètres locaux indiquent que la paramètre passé lors de l'appel de la routine sera copié localement dans la routine (la routine travaillera donc sur une copie locale, on parle de passage par valeur)
-- les **globaux**.
-  - Les paramètres globaux sont, comme le nom indique, globaux à l'algorithme. Il n'y a pas de copie générée (on parle de passage par variable ou adresse)
-
-## Déclaration des routines
-
-### Les procédures
-
-Une procédure (ou sous-programme) est une routine (un bloc de code) qui exécute un traitement puis rend la main. On peut ainsi isoler une partie de l’algorithme global et éventuellement l’appeler plusieurs fois en gardant un code structuré et modulaire.
-
-Pseudo-Code
-
-```
-PROCEDURE procedure(<liste des paramètres>)
-       [<déclarations locales>]
-  DEBUT
-       <instructions>
-  FIN
+function maFonction($toto)
+{
+  $toto += 15;
+  return ($toto + 10);
+}
+echo maFonction(120).'<br />';
+?>
 ```
 
-<p align="right">(En anglais : SUBPROCEDURE – BEGIN – END)</p>
+## Prototypage
 
-Fonctionnement : La procédure exécute donc un bout de code. Toutes les variables déclarées ne seront pas gardées.
+### Valeur par défaut des arguments
 
-### Les fonctions
+```php
+<?php
 
-Une fonction est un sous-algorithme effectuant un traitement et qui retourne une valeur.
+function setColor($color = "black")
+{
+  echo $color.'<br />';
+}
 
-Pseudo-Code
+//appel de la fonction
 
+$sCouleur = 'red';
+setColor(); // sans valeur de paramètre => Retourne Black
+setColor('rouge'); // retourne rouge
+setColor($sCouleur); // passage de la variable en paramètre => retourne red
+?>
 ```
-FONCTION fonction(<liste des paramètres>) : type_retourné
-       [<déclarations locales>]
-  DEBUT>
-       <instruction>
-	...
-  RETOURNE <résultat>
-  FIN
+
+### Passage de paramètre par référence
+
+```php
+<?php
+
+function change(&$var) // force le passage systématique par référence
+{
+  $var += 100; // incrémentation de +100
+}
+
+$iNbr = 12; // vaut 12
+change($iNbr); //passage par valeur, mais la fonction la prend en référence
+echo $iNbr; // vaut donc 112
+?>
 ```
 
-<p align="right">(En anglais : FUNCTION – BEGIN – RETURN – END)</p>
 
-Fonctionnement : La fonction retourne une valeur après un traitement des instructions.
+### Retour de plusieurs valeurs par une fonction
 
-## Portée des identifiants
+Nous avons vu en algo, que pour récupérer plusieurs valeurs retours d'une fonction, on utilisait un tableau. 
+Il y a un autre moyen, la procédure `list()`.
 
-La portée d’un identifiant est la partie de l’algorithme dans laquelle cet identifiant est reconnu conformément à sa déclaration, c’est-à-dire l’ensemble des lignes de codes dans lesquelles l’utilisation de cet identifiant fera référence à la donnée qu’il définit.
+```php
+<?php
 
-Un identifiant sera « visible » dans l’algorithme où il a été déclaré et dans tout sous algorithme appelé, mais jamais à un niveau plus haut.
+function trigo($iNbr) 
+{
+  return array(sin($iNbr), cos($iNbr), tan($iNbr)); // retourne un tableau
+}
 
----
+$rRayon = 12;
+list($a, $b, $c) = trigo($iRayon); // affectation de chaque valeur du tableau dans des variables
+
+echo "sin($rRayon)=$a, cos($rRayon)=$b, tan($rRayon)=$c";
+?>
+```
+
+
+### Retour dans un type donné (PHP 7)
+
+Comme expliqué plus haut, avec PHP 7 nous pouvons explicitement demandé que la fonction nous retourne un type donné.
+
+```php
+<?php
+declare(strict_types=1); 
+
+function addition(int $x, int $y):int
+{
+  return $x + $y;
+}
+
+echo addition(2, 5);
+?>
+```
+
+# Prêt pour la prochaine partie ? 😉 [C'est par ici](./Objets.md)
