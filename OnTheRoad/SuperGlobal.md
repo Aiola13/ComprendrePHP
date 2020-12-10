@@ -133,7 +133,8 @@ fonction verifyInput
 
 trim() qui enleve le superflu, espace supp 
 stripslashes() enleve tous les anti slashes
-htmlspecialchars() 
+htmlspecialchars()  " > &quot      & > &amp
+
 
 
 
