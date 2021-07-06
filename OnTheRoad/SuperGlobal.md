@@ -114,7 +114,7 @@ var_dump($_COOKIE);
 ![POST](../resources/cookie.png)
 
 
-
+<!---
 
 FAILLE XSS 
 
@@ -147,4 +147,4 @@ preg_match("/^[0-9 ]*$", $var)
 
 
 
-
+-->

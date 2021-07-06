@@ -75,7 +75,7 @@ echo 'couleur de la voiture '.$maVoiture->getCouleur().'<br />';
 ?>
 ```
 ---
-
+<!---
 
 ## Héritage
 
@@ -91,6 +91,7 @@ echo 'couleur de la voiture '.$maVoiture->getCouleur().'<br />';
       parent::__construct();
       $this->belle=TRUE();
     }
+
    
   }
 ?>
@@ -106,6 +107,6 @@ self `::` membre de la même classe
 ## Surcharge
 
 ## composition
-
+-->
 ---
 # Prêt pour la prochaine partie ? 😉 [C'est par ici](./)
